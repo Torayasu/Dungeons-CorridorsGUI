@@ -27,15 +27,19 @@ public class mainGUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
+        Console console = new Console();
+        ButtonInterface buttonArea = new ButtonInterface();
+        EquipmentPane equipmentPane = new EquipmentPane();
+
         window = primaryStage;
         window.setMaximized(true);
         window.setResizable(false);
         window.setTitle("Dungeons&Corridors");
 
-        VBox invArea = new VBox();
+        VBox invArea = equipmentPane.initEquipmentPane();
         VBox heroArea = new VBox();
-        HBox statusArea = new HBox();
-        HBox actionArea = new HBox();
+        VBox statusArea = console.initConsole();
+        HBox actionArea = buttonArea.initButtonInterface();
         GridPane mapArea = new GridPane();
 
         Image mapBackground = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\com.Dungeons&CorridorsGUI\\src\\main\\resources\\front.jpg"));
@@ -64,12 +68,8 @@ public class mainGUI extends Application {
         mainArea.setRight(invArea);
         mainArea.setCenter(mapArea);
 
-        Button actionButton = new Button();
-        actionButton.setText("This will be a button to perform an action");
-
         Label inventoryLabel = new Label();
         inventoryLabel.setText("Here will be the inventory");
-
         Label heroLabel = new Label();
         heroLabel.setText("Here we will see the hero stats");
         Label statusLabel = new Label();
@@ -77,11 +77,13 @@ public class mainGUI extends Application {
         Label mapLabel = new Label();
         mapLabel.setText("This is the place for the map");
 
-        actionArea.getChildren().add(actionButton);
         statusArea.getChildren().add(statusLabel);
         heroArea.getChildren().add(heroLabel);
         invArea.getChildren().add(inventoryLabel);
         mapArea.getChildren().addAll(mapLabel, mapBackgroundView);
+
+        buttonArea.getButton1().setOnAction( e -> buttonArea.setInterfaceToTravel());
+        buttonArea.getButton2().setOnAction(e -> buttonArea.resetInterface());
 
         Scene mainScene = new Scene(mainArea);
         window.setScene(mainScene);
