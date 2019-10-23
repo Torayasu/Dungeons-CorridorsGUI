@@ -42,9 +42,10 @@ public class mainGUI extends Application {
         HBox actionArea = buttonArea.initButtonInterface();
         GridPane mapArea = new GridPane();
 
-        Image mapBackground = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\com.Dungeons&CorridorsGUI\\src\\main\\resources\\front.jpg"));
-        ImageView mapBackgroundView = new ImageView(mapBackground);
-        mapBackgroundView.setPreserveRatio(true);
+        //    Image mapBackground = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\com.Dungeons&CorridorsGUI\\src\\main\\resources\\front.jpg"));
+
+        //ImageView mapBackgroundView = new ImageView(mapBackground);
+        //mapBackgroundView.setPreserveRatio(true);
 
         Border standardBorder = new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,CornerRadii.EMPTY,BorderWidths.DEFAULT));
 
@@ -80,7 +81,7 @@ public class mainGUI extends Application {
         statusArea.getChildren().add(statusLabel);
         heroArea.getChildren().add(heroLabel);
         invArea.getChildren().add(inventoryLabel);
-        mapArea.getChildren().addAll(mapLabel, mapBackgroundView);
+        mapArea.getChildren().addAll(mapLabel/*, mapBackgroundView*/);
 
         buttonArea.getButton1().setOnAction( e -> buttonArea.setInterfaceToTravel());
         buttonArea.getButton2().setOnAction(e -> buttonArea.resetInterface());

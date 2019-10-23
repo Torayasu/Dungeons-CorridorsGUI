@@ -9,22 +9,23 @@ public class EquipmentPane {
 
     TreeItem<String> root, armor, weapon, items, gold;
     TreeView<String> equTree;
+    Hero hero = new Hero(new AttributeSet(18,18,18,18,18,18));
 
 
     public EquipmentPane(){
+        this.hero = hero;
+
         root = new TreeItem<>();
         root.setExpanded(true);
 
         armor = makeBranch("Armor", root);
         weapon = makeBranch("Weapon", root);
-        items = makeBranch("Weapon", root);
-        gold = makeBranch("Weapon", root);
+        items = makeBranch("Items", root);
+        gold = makeBranch("Gold", root);
 
-        makeBranch("IronArmor", armor);
-        makeBranch("Steel Armor", armor);
+        addWeapons();
 
-        makeBranch("Dagger",weapon);
-        makeBranch("Sword", weapon);
+        addArmors();
 
         makeBranch("Health Potion", items);
         makeBranch("Mana Potion", items);
@@ -44,6 +45,26 @@ public class EquipmentPane {
 
     public VBox initEquipmentPane(){
         return equipmentPane;
+    }
+
+    public void addWeapon(Weapon weaponToBeAdded) {
+        makeBranch(weaponToBeAdded.getName(),weapon);
+    }
+
+    public void addArmor(Armor armorToBeAdded) {
+        makeBranch(armorToBeAdded.getName(),armor);
+    }
+
+    public void addWeapons() {
+        for(Weapon w : hero.getEquipmentSet().getWeapons()){
+            makeBranch(w.getName(),weapon);
+        }
+    }
+
+    public void addArmors() {
+        for(Armor a : hero.getEquipmentSet().getArmors()){
+            makeBranch(a.getName(),armor);
+        }
     }
 
     private TreeItem<String> makeBranch(String title, TreeItem<String> parent) {
