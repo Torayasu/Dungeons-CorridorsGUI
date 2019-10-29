@@ -1,3 +1,5 @@
+package com.DungeonsCorridorsGUI.internal;
+
 import java.util.Random;
 
 public class Dice {

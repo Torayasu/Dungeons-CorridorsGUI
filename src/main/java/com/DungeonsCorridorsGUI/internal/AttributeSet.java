@@ -1,3 +1,5 @@
+package com.DungeonsCorridorsGUI.internal;
+
 public class AttributeSet {
     ValueSet[] attributeSet = new ValueSet[6];
 

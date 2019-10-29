@@ -1,3 +1,5 @@
+package com.DungeonsCorridorsGUI.internal;
+
 public class Weapon {
     private String name;
     private Dice damageDice;

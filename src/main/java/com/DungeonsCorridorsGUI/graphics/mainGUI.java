@@ -1,23 +1,27 @@
+package com.DungeonsCorridorsGUI.graphics;
+
+import com.DungeonsCorridorsGUI.graphics.ButtonInterface;
+import com.DungeonsCorridorsGUI.graphics.CharacterCreationWindow;
+import com.DungeonsCorridorsGUI.graphics.Console;
+import com.DungeonsCorridorsGUI.graphics.EquipmentPane;
+import com.DungeonsCorridorsGUI.internal.AttributeSet;
+import com.DungeonsCorridorsGUI.internal.Hero;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.io.FileInputStream;
 
 
 public class mainGUI extends Application {
 
     Stage window;
+    Hero hero = new Hero(new AttributeSet(10,12,14,16,18,8));
+
 
 
     public static void main(String[] args) {
@@ -27,9 +31,24 @@ public class mainGUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
+
+
+        // Here we will show the Title Screen
+
+        // Here I will handle the character creation
+        CharacterCreationWindow characterCreationWindow = new CharacterCreationWindow(hero);
+        Stage newWindow = new Stage();
+        Scene newScene = characterCreationWindow.getScene();
+        newWindow.setScene(newScene);
+        newWindow.setMaximized(true);
+        newWindow.initModality(Modality.APPLICATION_MODAL);
+        newWindow.setOnCloseRequest(e -> characterCreationWindow.initTheHero());
+        newWindow.showAndWait();
+
         Console console = new Console();
         ButtonInterface buttonArea = new ButtonInterface();
-        EquipmentPane equipmentPane = new EquipmentPane();
+        EquipmentPane equipmentPane = new EquipmentPane(hero);
+        HeroPane heroPane = new HeroPane(hero);
 
         window = primaryStage;
         window.setMaximized(true);
@@ -37,12 +56,12 @@ public class mainGUI extends Application {
         window.setTitle("Dungeons&Corridors");
 
         VBox invArea = equipmentPane.initEquipmentPane();
-        VBox heroArea = new VBox();
+        VBox heroArea = heroPane.initHeroPane();
         VBox statusArea = console.initConsole();
         HBox actionArea = buttonArea.initButtonInterface();
         GridPane mapArea = new GridPane();
 
-        //    Image mapBackground = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\com.Dungeons&CorridorsGUI\\src\\main\\resources\\front.jpg"));
+        //Image mapBackground = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\com.Dungeons&CorridorsGUI\\src\\main\\resources\\front.jpg"));
 
         //ImageView mapBackgroundView = new ImageView(mapBackground);
         //mapBackgroundView.setPreserveRatio(true);
@@ -85,6 +104,8 @@ public class mainGUI extends Application {
 
         buttonArea.getButton1().setOnAction( e -> buttonArea.setInterfaceToTravel());
         buttonArea.getButton2().setOnAction(e -> buttonArea.resetInterface());
+
+
 
         Scene mainScene = new Scene(mainArea);
         window.setScene(mainScene);

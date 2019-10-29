@@ -1,3 +1,5 @@
+package com.DungeonsCorridorsGUI.internal;
+
 public class ValueSet {
     private int attribute;
     private int modifier;
@@ -16,5 +18,11 @@ public class ValueSet {
 
     public int getModifier() {
         return modifier;
+    }
+
+    @Override
+    public String toString() {
+        return attribute +
+                " / " + modifier;
     }
 }

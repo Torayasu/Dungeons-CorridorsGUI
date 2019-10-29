@@ -1,3 +1,5 @@
+package com.DungeonsCorridorsGUI.graphics;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 

@@ -1,3 +1,4 @@
+import com.DungeonsCorridorsGUI.internal.AttributeSet;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -2,39 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f75c4d08-1383-41e6-bb1d-f06b48309539" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/hamcrest-core-1.3-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/hamcrest-core-1.3-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-4.12-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-4.12-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-4.12.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Armor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AttributeModifingItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AttributeSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Dice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EquipmentSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HealingItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ValueSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Weapon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AttributeSetTestSuite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/EquipmentSetTestSuite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/CharacterCreationWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/HeroPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/AttributeSettingButtons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mainGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mainGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EquipmentPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EquipmentPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mainGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Armor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AttributeModifingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/AttributeModifingItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AttributeSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/AttributeSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ButtonInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/ButtonInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Dice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EquipmentPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/EquipmentPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EquipmentSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/EquipmentSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HealingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/HealingItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ValueSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/ValueSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/mainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AttributeSetTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AttributeSetTestSuite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/EquipmentSetTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EquipmentSetTestSuite.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,9 +102,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.AttributeSetTestSuite">
+  <component name="RunManager" selected="Application.mainGUI">
     <configuration name="mainGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mainGUI" />
+      <option name="MAIN_CLASS_NAME" value="com.DungeonsCorridorsGUI.graphics.mainGUI" />
       <module name="com.Dungeons&amp;CorridorsGUI.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -247,6 +242,14 @@
       <workItem from="1571674592088" duration="6038000" />
       <workItem from="1571680719064" duration="9000" />
       <workItem from="1571848135822" duration="2019000" />
+      <workItem from="1571850204948" duration="161000" />
+      <workItem from="1571935851769" duration="605000" />
+      <workItem from="1572025560856" duration="473000" />
+      <workItem from="1572026532954" duration="564000" />
+      <workItem from="1572250831648" duration="43000" />
+      <workItem from="1572250911570" duration="611000" />
+      <workItem from="1572284913075" duration="2371000" />
+      <workItem from="1572368769855" duration="9436000" />
     </task>
     <servers />
   </component>

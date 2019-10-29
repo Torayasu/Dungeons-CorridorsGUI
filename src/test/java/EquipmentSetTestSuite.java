@@ -1,3 +1,7 @@
+import com.DungeonsCorridorsGUI.internal.Armor;
+import com.DungeonsCorridorsGUI.internal.Dice;
+import com.DungeonsCorridorsGUI.internal.EquipmentSet;
+import com.DungeonsCorridorsGUI.internal.Weapon;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,11 +24,11 @@ public class EquipmentSetTestSuite {
     public void testAddArmor(){
         EquipmentSet stuff = new EquipmentSet();
 
-        stuff.addArmor(new Armor("Plate Armor", 10));
-        stuff.addArmor(new Armor("Plate Armor", 10));
-        stuff.addArmor(new Armor("Plate Armor", 12));
-        stuff.addArmor(new Armor("Plate Armor", 12));
-        stuff.addArmor(new Armor("plate Armor", 12));
+        stuff.addArmor(new Armor("Plate com.DungeonsCorridorsGUI.internal.Armor", 10));
+        stuff.addArmor(new Armor("Plate com.DungeonsCorridorsGUI.internal.Armor", 10));
+        stuff.addArmor(new Armor("Plate com.DungeonsCorridorsGUI.internal.Armor", 12));
+        stuff.addArmor(new Armor("Plate com.DungeonsCorridorsGUI.internal.Armor", 12));
+        stuff.addArmor(new Armor("plate com.DungeonsCorridorsGUI.internal.Armor", 12));
 
 
         Assert.assertEquals(3,stuff.getArmors().size());

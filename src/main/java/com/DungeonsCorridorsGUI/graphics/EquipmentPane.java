@@ -1,3 +1,9 @@
+package com.DungeonsCorridorsGUI.graphics;
+
+import com.DungeonsCorridorsGUI.internal.Armor;
+import com.DungeonsCorridorsGUI.internal.AttributeSet;
+import com.DungeonsCorridorsGUI.internal.Hero;
+import com.DungeonsCorridorsGUI.internal.Weapon;
 import javafx.geometry.Pos;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -9,10 +15,10 @@ public class EquipmentPane {
 
     TreeItem<String> root, armor, weapon, items, gold;
     TreeView<String> equTree;
-    Hero hero = new Hero(new AttributeSet(18,18,18,18,18,18));
+    Hero hero;
 
 
-    public EquipmentPane(){
+    public EquipmentPane(Hero hero){
         this.hero = hero;
 
         root = new TreeItem<>();

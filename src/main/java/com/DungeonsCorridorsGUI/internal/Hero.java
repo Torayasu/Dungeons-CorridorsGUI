@@ -1,8 +1,12 @@
+package com.DungeonsCorridorsGUI.internal;
+
 public class Hero {
     AttributeSet stats;
     Weapon equippedWeapon;
     Armor equippedArmor;
     EquipmentSet equipmentSet = new EquipmentSet();
+    private int exp = 0;
+    private int level = 1;
 
     //Temporary Constructor
     public Hero(AttributeSet stats) {
@@ -32,5 +36,9 @@ public class Hero {
 
     public EquipmentSet getEquipmentSet() {
         return equipmentSet;
+    }
+
+    public void setStats(AttributeSet stats) {
+        this.stats = stats;
     }
 }

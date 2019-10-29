@@ -1,3 +1,5 @@
+package com.DungeonsCorridorsGUI.internal;
+
 public class Armor {
     String name;
     int armorClass;
