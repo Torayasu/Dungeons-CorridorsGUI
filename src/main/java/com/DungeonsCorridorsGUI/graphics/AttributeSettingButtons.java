@@ -1,4 +1,4 @@
-package com.DungeonsCorridorsGUI.internal;
+package com.DungeonsCorridorsGUI.graphics;
 
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -23,8 +23,6 @@ public class AttributeSettingButtons extends Node {
         label.setPrefSize(100, 30);
         attributeValueField.setPrefSize(100,30);
         attributeValueField.setEditable(false);
-        plusButton.setOnAction(e -> increaseAttribute());
-        minusButton.setOnAction(e -> decreaseAttribute());
 
         GridPane.setConstraints(label,0,0);
         GridPane.setConstraints(attributeValueField,0,1);
@@ -37,17 +35,16 @@ public class AttributeSettingButtons extends Node {
         return layout;
     }
 
-    public void increaseAttribute(){
-        value++;
-        attributeValueField.setText(String.valueOf(value));
-    }
-
-    public void decreaseAttribute(){
-        value--;
-        attributeValueField.setText(String.valueOf(value));
-    }
 
     public TextArea getAttributeValueField() {
         return attributeValueField;
+    }
+
+    public Button getPlusButton() {
+        return plusButton;
+    }
+
+    public Button getMinusButton() {
+        return minusButton;
     }
 }

@@ -20,9 +20,7 @@ import javafx.stage.Stage;
 public class mainGUI extends Application {
 
     Stage window;
-    Hero hero = new Hero(new AttributeSet(10,12,14,16,18,8));
-
-
+    Hero hero = new Hero(new AttributeSet(1,1,1,1,1,1));
 
     public static void main(String[] args) {
         launch(args);
@@ -31,8 +29,6 @@ public class mainGUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-
-
         // Here we will show the Title Screen
 
         // Here I will handle the character creation
@@ -40,7 +36,9 @@ public class mainGUI extends Application {
         Stage newWindow = new Stage();
         Scene newScene = characterCreationWindow.getScene();
         newWindow.setScene(newScene);
-        newWindow.setMaximized(true);
+        newWindow.setMaximized(false);
+        newWindow.setMaxHeight(600);
+        newWindow.setMaxWidth(600);
         newWindow.initModality(Modality.APPLICATION_MODAL);
         newWindow.setOnCloseRequest(e -> characterCreationWindow.initTheHero());
         newWindow.showAndWait();
@@ -49,6 +47,7 @@ public class mainGUI extends Application {
         ButtonInterface buttonArea = new ButtonInterface();
         EquipmentPane equipmentPane = new EquipmentPane(hero);
         HeroPane heroPane = new HeroPane(hero);
+        Map mainMap = new Map();
 
         window = primaryStage;
         window.setMaximized(true);
@@ -59,7 +58,7 @@ public class mainGUI extends Application {
         VBox heroArea = heroPane.initHeroPane();
         VBox statusArea = console.initConsole();
         HBox actionArea = buttonArea.initButtonInterface();
-        GridPane mapArea = new GridPane();
+        GridPane mapArea = mainMap.initMap();
 
         //Image mapBackground = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\com.Dungeons&CorridorsGUI\\src\\main\\resources\\front.jpg"));
 

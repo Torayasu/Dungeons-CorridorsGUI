@@ -1,11 +1,11 @@
 package com.DungeonsCorridorsGUI.graphics;
 
 import com.DungeonsCorridorsGUI.internal.AttributeSet;
-import com.DungeonsCorridorsGUI.internal.AttributeSettingButtons;
 import com.DungeonsCorridorsGUI.internal.Hero;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
@@ -14,9 +14,7 @@ public class CharacterCreationWindow {
     private Scene scene;
     private GridPane gridPane = new GridPane();
     private ArrayList<AttributeSettingButtons> attributes = new ArrayList<>();
-    private Button doneButton = new Button("Done");
-    private Button verifyButton = new Button("Verify");
-    private boolean pointLimitExceeded = false;
+
     private Hero hero;
 
     public CharacterCreationWindow(Hero hero){
@@ -27,6 +25,21 @@ public class CharacterCreationWindow {
         attributes.add(new AttributeSettingButtons("Wisdom"));
         attributes.add(new AttributeSettingButtons("Intelligence"));
         attributes.add(new AttributeSettingButtons("Charisma"));
+
+        attributes.get(0).getPlusButton().setOnAction(e -> increaseAttribute(attributes.get(0)));
+        attributes.get(1).getPlusButton().setOnAction(e -> increaseAttribute(attributes.get(1)));
+        attributes.get(2).getPlusButton().setOnAction(e -> increaseAttribute(attributes.get(2)));
+        attributes.get(3).getPlusButton().setOnAction(e -> increaseAttribute(attributes.get(3)));
+        attributes.get(4).getPlusButton().setOnAction(e -> increaseAttribute(attributes.get(4)));
+        attributes.get(5).getPlusButton().setOnAction(e -> increaseAttribute(attributes.get(5)));
+
+        attributes.get(0).getMinusButton().setOnAction(e -> decreaseAttribute(attributes.get(0)));
+        attributes.get(1).getMinusButton().setOnAction(e -> decreaseAttribute(attributes.get(1)));
+        attributes.get(2).getMinusButton().setOnAction(e -> decreaseAttribute(attributes.get(2)));
+        attributes.get(3).getMinusButton().setOnAction(e -> decreaseAttribute(attributes.get(3)));
+        attributes.get(4).getMinusButton().setOnAction(e -> decreaseAttribute(attributes.get(4)));
+        attributes.get(5).getMinusButton().setOnAction(e -> decreaseAttribute(attributes.get(5)));
+
 
         gridPane.setPadding(new Insets(10, 10, 10, 10));
         gridPane.setVgap(8);
@@ -44,24 +57,33 @@ public class CharacterCreationWindow {
             gridPane.getChildren().add(aSB.initAttributeSettingButtons());
         }
 
-        verifyButton.setOnAction(e -> verifyAttributes());
-
         scene = new Scene(gridPane);
     }
 
-    public void verifyAttributes(){
-        int sum =0;
-        for (AttributeSettingButtons aSB : attributes) {
-            sum += Integer.valueOf(aSB.getAttributeValueField().getText());
-        }
-        if (sum >= 30){
-            pointLimitExceeded = true;
-        }
-        else {
-            pointLimitExceeded = false;
-        }
 
+    public void increaseAttribute(AttributeSettingButtons aSB){
+        int tmpStatValue = Integer.valueOf(aSB.getAttributeValueField().getText());
+        int sum = summarizeStats();
+        if (sum < 60 && tmpStatValue < 18){
+            aSB.getAttributeValueField().setText(String.valueOf(++tmpStatValue));
+        }
     }
+
+    public void decreaseAttribute(AttributeSettingButtons aSB){
+        int tmpStatValue = Integer.valueOf(aSB.getAttributeValueField().getText());
+        if (tmpStatValue > 1){
+            aSB.getAttributeValueField().setText(String.valueOf(--tmpStatValue));
+        }
+    }
+
+    public int summarizeStats(){
+        int sum = 0;
+        for (AttributeSettingButtons internalASB : attributes) {
+            sum += Integer.valueOf(internalASB.getAttributeValueField().getText());
+        }
+        return sum;
+    }
+
     public void initTheHero(){
         hero.setStats(new AttributeSet(
                 Integer.valueOf(attributes.get(0).getAttributeValueField().getText()),
