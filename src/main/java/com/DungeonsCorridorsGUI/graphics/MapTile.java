@@ -2,18 +2,29 @@ package com.DungeonsCorridorsGUI.graphics;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
-import java.util.Random;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class MapTile {
-    private boolean isUpPossible, isDownPossible, isLeftPossible, isRightPossible;
-    private boolean isPreviousUp, isPreviousDown, isPreviousLeft, isPreviousRight;
+    private StackPane mainBox = new StackPane();
     private ImageView mask;
+    private Image heroIcon;
+    private ImageView heroView;
 
-    public MapTile( boolean isPreviousUp, boolean isPreviousDown, boolean isPreviousLeft, boolean isPreviousRight){
+    public MapTile( int caseOfTile) throws FileNotFoundException {
 
-        /*Random randomizer = new Random();
-        switch (randomizer.nextInt(6)){
+        try {
+            heroIcon = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\Dungeons-CorridorsGUI\\src\\main\\resources\\images\\heroIcon.jpg"));
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        heroView = new ImageView(heroIcon);
+
+        switch (caseOfTile){
             case 0: {
                 initStraightCorridor();
             }
@@ -38,142 +49,83 @@ public class MapTile {
                 initDeadEnd();
             }
             break;
-
-        }*/
-        initStraightCorridor();
+        }
     }
 
-    public void initStraightCorridor(){
-        if (isPreviousDown | isPreviousUp) {
-            isDownPossible = true;
-            isLeftPossible = false;
-            isRightPossible = false;
-            isUpPossible = true;
-            mask = new ImageView(new Image("straight.jpg"));
+    public void initStraightCorridor() throws FileNotFoundException {
+        Image straight = null;
+        try {
+            straight = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\Dungeons-CorridorsGUI\\src\\main\\resources\\images\\straight.jpg"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        if (isPreviousLeft | isPreviousRight) {
-            isLeftPossible = true;
-            isDownPossible = false;
-            isUpPossible = false;
-            isRightPossible = true;
-        }
-
-
+        mask = new ImageView(straight);
+        mainBox.getChildren().add(mask);
     }
 
     public void initLeftTurn(){
-        if (isPreviousDown) {
-            isDownPossible = true;
-            isLeftPossible = true;
-            isRightPossible = false;
-            isUpPossible = false;
+        Image leftTurn = null;
+        try {
+            leftTurn = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\Dungeons-CorridorsGUI\\src\\main\\resources\\images\\left_turn.jpg"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        if (isPreviousUp) {
-            isUpPossible = true;
-            isLeftPossible = false;
-            isRightPossible = true;
-            isDownPossible = false;
-        }
-        if (isPreviousLeft) {
-            isLeftPossible = true;
-            isDownPossible = true;
-            isUpPossible = false;
-            isRightPossible = false;
-        }
-        if (isPreviousRight) {
-            isRightPossible = true;
-            isDownPossible = false;
-            isUpPossible = true;
-            isLeftPossible = false;
-        }
+        mask = new ImageView(leftTurn);
+        mainBox.getChildren().add(mask);
     }
 
-    public void initRightTurn(){
-        if (isPreviousDown) {
-            isDownPossible = true;
-            isLeftPossible = false;
-            isRightPossible = true;
-            isUpPossible = false;
+    public void initRightTurn()
+    {
+        Image rightTurn = null;
+        try {
+            rightTurn = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\Dungeons-CorridorsGUI\\src\\main\\resources\\images\\right_turn.jpg"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        if (isPreviousUp) {
-            isUpPossible = true;
-            isLeftPossible = true;
-            isRightPossible = false;
-            isDownPossible = false;
-        }
-        if (isPreviousLeft) {
-            isLeftPossible = true;
-            isDownPossible = false;
-            isUpPossible = true;
-            isRightPossible = false;
-        }
-        if (isPreviousRight) {
-            isRightPossible = true;
-            isDownPossible = true;
-            isUpPossible = false;
-            isLeftPossible = false;
-        }
+        mask = new ImageView(rightTurn);
+        mainBox.getChildren().add(mask);
     }
 
     public void initTJunction(){
-        if (isPreviousDown) {
-            isDownPossible = true;
-            isLeftPossible = true;
-            isRightPossible = true;
-            isUpPossible = false;
+        Image TJunction = null;
+        try {
+            TJunction = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\Dungeons-CorridorsGUI\\src\\main\\resources\\images\\T_junction.jpg"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        if (isPreviousUp) {
-            isUpPossible = true;
-            isLeftPossible = true;
-            isRightPossible = true;
-            isDownPossible = false;
-        }
-        if (isPreviousLeft) {
-            isLeftPossible = true;
-            isDownPossible = true;
-            isUpPossible = true;
-            isRightPossible = false;
-        }
-        if (isPreviousRight) {
-            isRightPossible = true;
-            isDownPossible = true;
-            isUpPossible = true;
-            isLeftPossible = false;
-        }
+        mask = new ImageView(TJunction);
+        mainBox.getChildren().add(mask);
+
     }
 
     public void initXJunction(){
-       isLeftPossible = true;
-       isRightPossible = true;
-       isUpPossible = true;
-       isDownPossible = true;
+        Image XJunction = null;
+        try {
+            XJunction = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\Dungeons-CorridorsGUI\\src\\main\\resources\\images\\x_junction.jpg"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        mask = new ImageView(XJunction);
+        mainBox.getChildren().add(mask);
     }
 
     public void initDeadEnd(){
-        if (isPreviousDown) {
-            isDownPossible = true;
-            isLeftPossible = false;
-            isRightPossible = false;
-            isUpPossible = false;
-        }
-        if (isPreviousUp) {
-            isUpPossible = true;
-            isLeftPossible = false;
-            isRightPossible = false;
-            isDownPossible = false;
-        }
-        if (isPreviousLeft) {
-            isLeftPossible = true;
-            isDownPossible = false;
-            isUpPossible = false;
-            isRightPossible = false;
-        }
-        if (isPreviousRight) {
-            isRightPossible = true;
-            isDownPossible = false;
-            isUpPossible = false;
-            isLeftPossible = false;
-        }
+
     }
 
+    public StackPane getMainBox() {
+        return mainBox;
+    }
+
+    public void showHero(){
+        mainBox.getChildren().add(heroView);
+    }
+
+    public void hideHero(){
+        mainBox.getChildren().remove(heroView);
+    }
+
+    public ImageView getMask() {
+        return mask;
+    }
 }

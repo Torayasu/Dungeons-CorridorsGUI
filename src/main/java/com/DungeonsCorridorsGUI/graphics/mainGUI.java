@@ -57,7 +57,7 @@ public class mainGUI extends Application {
         VBox invArea = equipmentPane.initEquipmentPane();
         VBox heroArea = heroPane.initHeroPane();
         VBox statusArea = console.initConsole();
-        HBox actionArea = buttonArea.initButtonInterface();
+        GridPane actionArea = buttonArea.initButtonInterface();
         GridPane mapArea = mainMap.initMap();
 
         //Image mapBackground = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\com.Dungeons&CorridorsGUI\\src\\main\\resources\\front.jpg"));
@@ -87,28 +87,19 @@ public class mainGUI extends Application {
         mainArea.setRight(invArea);
         mainArea.setCenter(mapArea);
 
-        Label inventoryLabel = new Label();
-        inventoryLabel.setText("Here will be the inventory");
-        Label heroLabel = new Label();
-        heroLabel.setText("Here we will see the hero stats");
-        Label statusLabel = new Label();
-        statusLabel.setText("Here we will see status of the game, text messages from console");
-        Label mapLabel = new Label();
-        mapLabel.setText("This is the place for the map");
 
-        statusArea.getChildren().add(statusLabel);
-        heroArea.getChildren().add(heroLabel);
-        invArea.getChildren().add(inventoryLabel);
-        mapArea.getChildren().addAll(mapLabel/*, mapBackgroundView*/);
-
-        buttonArea.getButton1().setOnAction( e -> buttonArea.setInterfaceToTravel());
-        buttonArea.getButton2().setOnAction(e -> buttonArea.resetInterface());
-
+        buttonArea.setInterfaceToTravel();
+        buttonArea.getButton1().setOnAction( e -> mainMap.moveUp());
+        buttonArea.getButton2().setOnAction( e -> mainMap.moveDown());
+        buttonArea.getButton3().setOnAction( e -> mainMap.moveRight());
+        buttonArea.getButton4().setOnAction( e -> mainMap.moveLeft());
 
 
         Scene mainScene = new Scene(mainArea);
         window.setScene(mainScene);
         window.show();
     }
+
+
 
 }
