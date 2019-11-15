@@ -1,0 +1,7 @@
+- Add enemies generation
+- Add leveling up
+- Add Game Winning Scenario (eg. reaching level 5)
+- Add more weapons
+- Add more armors
+- Add armor effect
+- Add selecting the equipment from inventory

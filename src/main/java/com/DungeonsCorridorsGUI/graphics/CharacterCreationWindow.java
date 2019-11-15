@@ -14,7 +14,7 @@ public class CharacterCreationWindow {
     private Scene scene;
     private GridPane gridPane = new GridPane();
     private ArrayList<AttributeSettingButtons> attributes = new ArrayList<>();
-
+    private Label infoLabel = new Label();
     private Hero hero;
 
     public CharacterCreationWindow(Hero hero){
@@ -51,11 +51,14 @@ public class CharacterCreationWindow {
         GridPane.setConstraints(attributes.get(3).initAttributeSettingButtons(),2,3);
         GridPane.setConstraints(attributes.get(4).initAttributeSettingButtons(),2,4);
         GridPane.setConstraints(attributes.get(5).initAttributeSettingButtons(),2,5);
+        GridPane.setConstraints(infoLabel,2,6);
+        infoLabel.setText("Sum of all attribute points can't exceed 60 points. \n Individual attribute can't exceed 18 points \n Close this window, when you are done setting up");
 
 
         for (AttributeSettingButtons aSB : attributes){
             gridPane.getChildren().add(aSB.initAttributeSettingButtons());
         }
+        gridPane.getChildren().add(infoLabel);
 
         scene = new Scene(gridPane);
     }

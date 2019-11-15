@@ -1,26 +1,31 @@
 package com.DungeonsCorridorsGUI.graphics;
 
-import com.DungeonsCorridorsGUI.graphics.ButtonInterface;
-import com.DungeonsCorridorsGUI.graphics.CharacterCreationWindow;
-import com.DungeonsCorridorsGUI.graphics.Console;
-import com.DungeonsCorridorsGUI.graphics.EquipmentPane;
 import com.DungeonsCorridorsGUI.internal.AttributeSet;
+import com.DungeonsCorridorsGUI.internal.Dice;
 import com.DungeonsCorridorsGUI.internal.Hero;
+import com.DungeonsCorridorsGUI.internal.Monster;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.util.Random;
 
 
 public class mainGUI extends Application {
 
     Stage window;
     Hero hero = new Hero(new AttributeSet(1,1,1,1,1,1));
+    Console console = new Console();
+    boolean playerIsDead = false;
+
+
+    public mainGUI() {
+    }
 
     public static void main(String[] args) {
         launch(args);
@@ -43,7 +48,6 @@ public class mainGUI extends Application {
         newWindow.setOnCloseRequest(e -> characterCreationWindow.initTheHero());
         newWindow.showAndWait();
 
-        Console console = new Console();
         ButtonInterface buttonArea = new ButtonInterface();
         EquipmentPane equipmentPane = new EquipmentPane(hero);
         HeroPane heroPane = new HeroPane(hero);
@@ -59,11 +63,6 @@ public class mainGUI extends Application {
         VBox statusArea = console.initConsole();
         GridPane actionArea = buttonArea.initButtonInterface();
         GridPane mapArea = mainMap.initMap();
-
-        //Image mapBackground = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\com.Dungeons&CorridorsGUI\\src\\main\\resources\\front.jpg"));
-
-        //ImageView mapBackgroundView = new ImageView(mapBackground);
-        //mapBackgroundView.setPreserveRatio(true);
 
         Border standardBorder = new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,CornerRadii.EMPTY,BorderWidths.DEFAULT));
 
@@ -89,10 +88,24 @@ public class mainGUI extends Application {
 
 
         buttonArea.setInterfaceToTravel();
-        buttonArea.getButton1().setOnAction( e -> mainMap.moveUp());
-        buttonArea.getButton2().setOnAction( e -> mainMap.moveDown());
-        buttonArea.getButton3().setOnAction( e -> mainMap.moveRight());
-        buttonArea.getButton4().setOnAction( e -> mainMap.moveLeft());
+        buttonArea.getButton1().setOnAction( e -> { if (!playerIsDead) {mainMap.moveUp();
+                                                    checkEncounter();
+                                                    heroPane.showStats();}
+        });
+        buttonArea.getButton2().setOnAction( e -> { if (!playerIsDead) {mainMap.moveDown();
+                                                    checkEncounter();
+                                                    heroPane.showStats();}
+        });
+        buttonArea.getButton3().setOnAction( e -> { if (!playerIsDead) {
+                                                    mainMap.moveRight();
+                                                    checkEncounter();
+                                                    heroPane.showStats();}
+        });
+        buttonArea.getButton4().setOnAction( e -> { if (!playerIsDead) {
+                                                    mainMap.moveLeft();
+                                                    checkEncounter();
+                                                    heroPane.showStats();}
+        });
 
 
         Scene mainScene = new Scene(mainArea);
@@ -100,6 +113,37 @@ public class mainGUI extends Application {
         window.show();
     }
 
+    public void checkEncounter()  {
+        Random encounterChance = new Random();
+        boolean monsterIsDead = false;
+        int dmgDoneByPlayer = 0;
+        int dmgDoneByMonster = 0;
+        int tmpHPofPlayer = 0;
+        if (encounterChance.nextInt(100)+1 >= 50) {
+            Monster monster = new Monster(10,new Dice(4), 0, "RAT");
+           while (hero.getHP() > 0 && !monsterIsDead){
+               //Hero Attacks
+               dmgDoneByPlayer = hero.getEquippedWeapon().getDamageDice().cast() + hero.getEquippedWeapon().getDmgModifier();
+               monster.setHP(monster.getHP()-dmgDoneByPlayer);
+               console.addMessage(" You have done " + dmgDoneByPlayer + " damage to " + monster.getName());
+               if( monster.getHP() <= 0) {
+                   monsterIsDead = true;
+                   console.addMessage(monster.getName() + " is Dead !");
+               }
+               //Monster Attacks
+               if (!monsterIsDead) {
+                   dmgDoneByMonster = monster.getDmgDice().cast() + monster.getDmgModifier();
+                   console.addMessage(monster.getName() + " did " + dmgDoneByMonster + " damage to you !");
+                   tmpHPofPlayer = hero.getHP() - dmgDoneByMonster;
+                   hero.setHP(tmpHPofPlayer);
+               }
+           }
+           if (hero.getHP() <= 0) {
+               console.addMessage("You are DEAD !");
+               playerIsDead = true;
+           }
+        }
 
+    }
 
 }

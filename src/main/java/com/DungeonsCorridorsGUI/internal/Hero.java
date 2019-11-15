@@ -7,10 +7,12 @@ public class Hero {
     EquipmentSet equipmentSet = new EquipmentSet();
     private int exp = 0;
     private int level = 1;
+    private int HP;
 
     //Temporary Constructor
     public Hero(AttributeSet stats) {
         this.stats = stats;
+        HP = 50;
         equippedWeapon = new Weapon("Fist", new Dice(4), 0);
         equippedArmor = new Armor("No armor",0);
         equipmentSet.addArmor(new Armor("Plate Armor", 10));
@@ -40,5 +42,13 @@ public class Hero {
 
     public void setStats(AttributeSet stats) {
         this.stats = stats;
+    }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public void setHP(int HP) {
+        this.HP = HP;
     }
 }

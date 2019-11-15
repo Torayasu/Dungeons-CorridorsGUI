@@ -27,12 +27,14 @@ public class HeroPane {
 
     public void showStats() {
         labels.clear();
+        heroPane.getChildren().clear();
         labels.add(new Label("Strength:      " + hero.getStats().getStrength()));
         labels.add(new Label("Dexterity:     " + hero.getStats().getDexterity()));
         labels.add(new Label("Constitution   " + hero.getStats().getConstitution()));
         labels.add(new Label("Wisdom:        " + hero.getStats().getWisdom()));
         labels.add(new Label("Intelligence:  " + hero.getStats().getIntelligence()));
         labels.add(new Label("Charisma:      " + hero.getStats().getCharisma()));
+        labels.add(new Label("HP:            " + hero.getHP()));
         for (Label l : labels){
             heroPane.getChildren().add(l);
         }
