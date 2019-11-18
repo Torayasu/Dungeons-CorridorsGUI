@@ -9,8 +9,8 @@ import java.io.FileNotFoundException;
 
 public class MapTile {
     private StackPane mainBox = new StackPane();
-    private ImageView mask;
-    private Image heroIcon;
+    private ImageView mask, blankMask;
+    private Image heroIcon, blank;
     private ImageView heroView;
 
     public MapTile( int caseOfTile) throws FileNotFoundException {
@@ -23,6 +23,16 @@ public class MapTile {
         }
 
         heroView = new ImageView(heroIcon);
+
+        try {
+            blank = new Image(new FileInputStream("C:\\Users\\pljawil2\\IdeaProjects\\Dungeons-CorridorsGUI\\src\\main\\resources\\images\\blank.jpg"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        blankMask = new ImageView(blank);
+
+
 
         switch (caseOfTile){
             case 0: {
@@ -127,5 +137,15 @@ public class MapTile {
 
     public ImageView getMask() {
         return mask;
+    }
+
+    public void makeBlank () {
+        mainBox.getChildren().clear();
+        mainBox.getChildren().add(blankMask);
+    }
+
+    public void unBlank() {
+        mainBox.getChildren().clear();
+        mainBox.getChildren().add(mask);
     }
 }

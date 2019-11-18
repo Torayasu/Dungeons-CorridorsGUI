@@ -35,6 +35,18 @@ public class HeroPane {
         labels.add(new Label("Intelligence:  " + hero.getStats().getIntelligence()));
         labels.add(new Label("Charisma:      " + hero.getStats().getCharisma()));
         labels.add(new Label("HP:            " + hero.getHP()));
+        labels.add(new Label("Exp:           " + hero.getExp()));
+        labels.add(new Label("AC:            " + hero.getArmorClass()));
+
+        labels.add(new Label("Weapon "));
+        labels.add(new Label(hero.getEquippedWeapon().getName()
+                + " dmg: 1d" + hero.getEquippedWeapon().getDamageDice().getNoOfSides()
+                + " + " + hero.getEquippedWeapon().getDmgModifier()));
+
+        labels.add(new Label("Armor"));
+        labels.add(new Label(hero.getEquippedArmor().getName() +
+                " AC bonus: " + hero.getEquippedArmor().getArmorClass()));
+
         for (Label l : labels){
             heroPane.getChildren().add(l);
         }

@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
@@ -21,6 +22,7 @@ public class mainGUI extends Application {
     Stage window;
     Hero hero = new Hero(new AttributeSet(1,1,1,1,1,1));
     Console console = new Console();
+    ButtonInterface buttonArea = new ButtonInterface();
     boolean playerIsDead = false;
 
 
@@ -48,10 +50,12 @@ public class mainGUI extends Application {
         newWindow.setOnCloseRequest(e -> characterCreationWindow.initTheHero());
         newWindow.showAndWait();
 
-        ButtonInterface buttonArea = new ButtonInterface();
+
         EquipmentPane equipmentPane = new EquipmentPane(hero);
         HeroPane heroPane = new HeroPane(hero);
         Map mainMap = new Map();
+        MenuDungeons mainMenu = new MenuDungeons();
+        MenuBar menu = mainMenu.initMenuDungeons();
 
         window = primaryStage;
         window.setMaximized(true);
@@ -60,7 +64,11 @@ public class mainGUI extends Application {
 
         VBox invArea = equipmentPane.initEquipmentPane();
         VBox heroArea = heroPane.initHeroPane();
+        VBox upperArea = new VBox();
+        upperArea.setMaxHeight(150);
         VBox statusArea = console.initConsole();
+        statusArea.setMaxHeight(150);
+        upperArea.getChildren().addAll(menu,statusArea);
         GridPane actionArea = buttonArea.initButtonInterface();
         GridPane mapArea = mainMap.initMap();
 
@@ -81,7 +89,7 @@ public class mainGUI extends Application {
         BorderPane mainArea = new BorderPane();
         mainArea.setPadding(new Insets(20));
         mainArea.setBottom(actionArea);
-        mainArea.setTop(statusArea);
+        mainArea.setTop(upperArea);
         mainArea.setLeft(heroArea);
         mainArea.setRight(invArea);
         mainArea.setCenter(mapArea);
@@ -115,35 +123,56 @@ public class mainGUI extends Application {
 
     public void checkEncounter()  {
         Random encounterChance = new Random();
+        Dice d20 = new Dice(20);
         boolean monsterIsDead = false;
         int dmgDoneByPlayer = 0;
         int dmgDoneByMonster = 0;
         int tmpHPofPlayer = 0;
+        boolean didPlayerHit = false;
+        boolean didMonsterHit = false;
         if (encounterChance.nextInt(100)+1 >= 50) {
-            Monster monster = new Monster(10,new Dice(4), 0, "RAT");
-           while (hero.getHP() > 0 && !monsterIsDead){
+            Monster monster = new Monster(10,new Dice(4), 0, "RAT", 10, 1);
+            console.addMessage(" You encounter a hostile " + monster.getName() + " !");
+            while (hero.getHP() > 0 && !monsterIsDead){
+
                //Hero Attacks
-               dmgDoneByPlayer = hero.getEquippedWeapon().getDamageDice().cast() + hero.getEquippedWeapon().getDmgModifier();
-               monster.setHP(monster.getHP()-dmgDoneByPlayer);
-               console.addMessage(" You have done " + dmgDoneByPlayer + " damage to " + monster.getName());
+               if (hero.getStats().getStrength().getModifier() + d20.cast() > monster.getArmorClass()) {
+                   dmgDoneByPlayer = hero.getEquippedWeapon().getDamageDice().cast() + hero.getEquippedWeapon().getDmgModifier() + hero.getStats().getStrength().getModifier();
+                   monster.setHP(monster.getHP() - dmgDoneByPlayer);
+                   console.addMessage(" You have done " + dmgDoneByPlayer + " damage to " + monster.getName());
+               }
+               else {
+                   console.addMessage("You have missed !");
+               }
                if( monster.getHP() <= 0) {
                    monsterIsDead = true;
                    console.addMessage(monster.getName() + " is Dead !");
+
                }
                //Monster Attacks
                if (!monsterIsDead) {
-                   dmgDoneByMonster = monster.getDmgDice().cast() + monster.getDmgModifier();
-                   console.addMessage(monster.getName() + " did " + dmgDoneByMonster + " damage to you !");
-                   tmpHPofPlayer = hero.getHP() - dmgDoneByMonster;
-                   hero.setHP(tmpHPofPlayer);
+                   if (d20.cast() + monster.getMelee() > hero.getArmorClass() ) {
+                       dmgDoneByMonster = monster.getDmgDice().cast() + monster.getDmgModifier();
+                       console.addMessage(monster.getName() + " did " + dmgDoneByMonster + " damage to you !");
+                       tmpHPofPlayer = hero.getHP() - dmgDoneByMonster;
+                       hero.setHP(tmpHPofPlayer);
+                   }
+                   else {
+                       console.addMessage("Enemy " +monster.getName() + " missed !");
+                   }
                }
            }
            if (hero.getHP() <= 0) {
                console.addMessage("You are DEAD !");
                playerIsDead = true;
            }
+           if (monsterIsDead) {
+               int tmpExp = hero.getExp()+100;
+               hero.setExp(tmpExp);
+           }
         }
 
     }
+
 
 }

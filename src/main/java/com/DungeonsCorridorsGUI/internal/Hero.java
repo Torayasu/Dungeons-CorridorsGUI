@@ -8,20 +8,17 @@ public class Hero {
     private int exp = 0;
     private int level = 1;
     private int HP;
+    private int armorClass;
 
     //Temporary Constructor
     public Hero(AttributeSet stats) {
         this.stats = stats;
         HP = 50;
         equippedWeapon = new Weapon("Fist", new Dice(4), 0);
-        equippedArmor = new Armor("No armor",0);
-        equipmentSet.addArmor(new Armor("Plate Armor", 10));
-        equipmentSet.addArmor(new Armor("Leather Armor", 5));
-        equipmentSet.addArmor(new Armor("Deadric Armor", 20));
+        equippedArmor = new Armor("No armor",2);
+        equipmentSet.addArmor(new Armor("None", 0));
 
         equipmentSet.addWeapon(new Weapon("Dagger", new Dice(6), 0 ));
-        equipmentSet.addWeapon(new Weapon("Sword", new Dice(8), 1 ));
-        equipmentSet.addWeapon(new Weapon("Axe", new Dice(12), 3 ));
     }
 
     public AttributeSet getStats() {
@@ -50,5 +47,17 @@ public class Hero {
 
     public void setHP(int HP) {
         this.HP = HP;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
+    public int getExp() {
+        return exp;
+    }
+
+    public int getArmorClass(){
+        return equippedArmor.armorClass + getStats().getDexterity().getModifier() + 10;
     }
 }

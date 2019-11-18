@@ -65,6 +65,14 @@ public class Map {
         GridPane.setConstraints(tiles[10][10].getMainBox(),10,10);
         map.getChildren().add(tiles[10][10].getMainBox());
 
+
+        for (int i = 0; i < tiles.length; i++) {
+            for (int j = 0; j < tiles[0].length; j++) {
+                tiles[i][j].makeBlank();
+            }
+        }
+
+        tiles[heroPosX][heroPosY].unBlank();
         tiles[heroPosX][heroPosY].showHero();
 
     }
@@ -79,6 +87,7 @@ public class Map {
         if (heroPosY > 0) {
             tiles[heroPosX][heroPosY].hideHero();
             heroPosY--;
+            tiles[heroPosX][heroPosY].unBlank();
             tiles[heroPosX][heroPosY].showHero();
         }
     }
@@ -87,6 +96,7 @@ public class Map {
         if (heroPosY < 10) {
             tiles[heroPosX][heroPosY].hideHero();
             heroPosY++;
+            tiles[heroPosX][heroPosY].unBlank();
             tiles[heroPosX][heroPosY].showHero();
 
         }
@@ -96,6 +106,7 @@ public class Map {
         if (heroPosX < 10) {
             tiles[heroPosX][heroPosY].hideHero();
             heroPosX++;
+            tiles[heroPosX][heroPosY].unBlank();
             tiles[heroPosX][heroPosY].showHero();
         }
     }
@@ -104,6 +115,7 @@ public class Map {
         if (heroPosX > 0) {
             tiles[heroPosX][heroPosY].hideHero();
             heroPosX--;
+            tiles[heroPosX][heroPosY].unBlank();
             tiles[heroPosX][heroPosY].showHero();
 
         }

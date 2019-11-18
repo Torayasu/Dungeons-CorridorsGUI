@@ -5,12 +5,16 @@ public class Monster {
     private Dice dmgDice;
     private int dmgModifier;
     private String name;
+    private int armorClass;
+    private int melee;
 
-    public Monster(int HP, Dice dmgDice, int dmgModifier, String name) {
+    public Monster(int HP, Dice dmgDice, int dmgModifier, String name, int armorClass, int melee) {
         this.HP = HP;
         this.dmgDice = dmgDice;
         this.dmgModifier = dmgModifier;
         this.name = name;
+        this.armorClass = armorClass;
+        this.melee = melee;
     }
 
     public int getHP() {
@@ -43,5 +47,13 @@ public class Monster {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getArmorClass() {
+        return armorClass;
+    }
+
+    public int getMelee() {
+        return melee;
     }
 }

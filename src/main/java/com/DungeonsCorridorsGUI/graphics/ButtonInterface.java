@@ -42,12 +42,11 @@ public class ButtonInterface {
         button4.setDisable(false);
     }
 
-    public void resetInterface (){
-        button1.setText(" Add message");
-        button2.setText(" Inactive Button");
+    public void setInterfaceToBattle (){
+        button1.setText(" Attack");
+        button2.setText(" Drink Potion");
         button3.setText(" Inactive Button");
         button4.setText(" Inactive Button");
-        button2.setDisable(true);
         button3.setDisable(true);
         button4.setDisable(true);
     }

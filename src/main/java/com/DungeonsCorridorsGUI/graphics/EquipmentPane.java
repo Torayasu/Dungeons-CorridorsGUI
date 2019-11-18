@@ -8,6 +8,9 @@ import javafx.geometry.Pos;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+
+import javax.swing.text.StyledEditorKit;
 
 public class EquipmentPane {
 
@@ -33,16 +36,19 @@ public class EquipmentPane {
 
         addArmors();
 
-        makeBranch("Health Potion", items);
-        makeBranch("Mana Potion", items);
+        makeBranch("None", items);
 
-        makeBranch("1000", gold);
+        makeBranch("0", gold);
 
         equTree = new TreeView<>(root);
         equTree.setShowRoot(false);
         equTree.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-            if (newValue!= null)
-                System.out.println(newValue.getValue());
+            if (newValue!= null) {
+                //String tmp = oldValue.getValue();
+                //newValue.setValue(tmp);
+                //System.out.println(newValue.getValue());
+            }
+
         });
         equipmentPane.getChildren().add(equTree);
         equipmentPane.setAlignment(Pos.TOP_LEFT);
