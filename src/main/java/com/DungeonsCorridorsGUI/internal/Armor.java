@@ -1,5 +1,7 @@
 package com.DungeonsCorridorsGUI.internal;
 
+import java.util.Objects;
+
 public class Armor {
     String name;
     int armorClass;
@@ -23,15 +25,13 @@ public class Armor {
         if (o == null || getClass() != o.getClass()) return false;
 
         Armor armor = (Armor) o;
-
-        if (armorClass != armor.armorClass) return false;
-        return name != null ? name.equals(armor.name) : armor.name == null;
+        return Objects.equals(name, armor.name);
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + armorClass;
+        result = 31 * result;
         return result;
     }
 

@@ -1,13 +1,6 @@
 - Add enemies generation
-- Add leveling up
-- Add Game Winning Scenario (eg. reaching level 5)
-- Add more weapons
-- Add more armors
-- Add armor effect
-- Add selecting the equipment from inventory -> Method one: make the selection bold ??
-- Add Upper Menu
-- Add Hidden tiles (FogOfWar Effect) -> done
+- Add selecting the equipment from inventory -> Added (based on unique names, so not so good, switch to Table View ?)
+- Add saving and loading game
+- Add starting a new game
 - Add waiting time while displaying message - wait until you add sounds
-- Add effect of EXP
-- Add the Hit Rate (melee vs. AC) -> Done
 - Add Gold and shopping

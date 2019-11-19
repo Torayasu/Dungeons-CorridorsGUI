@@ -20,6 +20,14 @@ public class ValueSet {
         return modifier;
     }
 
+    public void setAttribute(int newAttribute){
+        attribute = newAttribute;
+        modifier = (attribute-10) / 2;
+        if (attribute <= 0){
+            modifier = -4;
+        }
+    }
+
     @Override
     public String toString() {
         return attribute +

@@ -121,4 +121,11 @@ public class Map {
         }
     }
 
+    public int getHeroPosX() {
+        return heroPosX;
+    }
+
+    public int getHeroPosY() {
+        return heroPosY;
+    }
 }

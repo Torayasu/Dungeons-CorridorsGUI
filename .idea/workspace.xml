@@ -2,26 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f75c4d08-1383-41e6-bb1d-f06b48309539" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/MenuDungeons.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/blank.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/ButtonInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/ButtonInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/Console.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/EquipmentPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/EquipmentPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/HeroPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/HeroPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/MapTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/MapTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/mainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/graphics/mainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Armor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/ValueSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/ValueSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DungeonsCorridorsGUI/internal/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ToDo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ToDo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/EquipmentSetTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EquipmentSetTestSuite.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,6 +133,26 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="EquipmentSetTestSuite.testAddArmor" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;EquipmentSetTestSuite.testAddArmor&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="EquipmentSetTestSuite.testAddWeapon" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -211,9 +222,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AttributeSetTestSuite" />
         <item itemvalue="Gradle.EquipmentSetTestSuite" />
+        <item itemvalue="Gradle.EquipmentSetTestSuite.testAddArmor" />
         <item itemvalue="Gradle.EquipmentSetTestSuite.testAddWeapon" />
+        <item itemvalue="Gradle.AttributeSetTestSuite" />
         <item itemvalue="Application.mainGUI" />
       </list>
     </recent_temporary>
@@ -249,7 +261,8 @@
       <workItem from="1573587271048" duration="696000" />
       <workItem from="1573821628208" duration="14120000" />
       <workItem from="1574081225722" duration="1121000" />
-      <workItem from="1574096820524" duration="10751000" />
+      <workItem from="1574096820524" duration="11111000" />
+      <workItem from="1574182000432" duration="8455000" />
     </task>
     <servers />
   </component>

@@ -26,9 +26,7 @@ public class Weapon {
     @Override
     public boolean equals(Object o) {
         Weapon weapon = (Weapon) o;
-        if ( ((Weapon) o).getName().equals(this.name)
-                && ((Weapon) o).getDamageDice().getNoOfSides() == this.damageDice.getNoOfSides()
-        && ((Weapon) o).getDmgModifier() == this.dmgModifier) {
+        if ( ((Weapon) o).getName().equals(this.name)) {
             return true;
         }
         else{
@@ -38,7 +36,7 @@ public class Weapon {
 
     @Override
     public int hashCode() {
-        int result = name.hashCode() + dmgModifier + damageDice.getNoOfSides();
+        int result = name.hashCode();
         return result;
     }
 

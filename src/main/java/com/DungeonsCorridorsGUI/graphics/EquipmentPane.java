@@ -4,7 +4,10 @@ import com.DungeonsCorridorsGUI.internal.Armor;
 import com.DungeonsCorridorsGUI.internal.AttributeSet;
 import com.DungeonsCorridorsGUI.internal.Hero;
 import com.DungeonsCorridorsGUI.internal.Weapon;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.VBox;
@@ -16,9 +19,11 @@ public class EquipmentPane {
 
     private VBox equipmentPane = new VBox();
 
-    TreeItem<String> root, armor, weapon, items, gold;
-    TreeView<String> equTree;
-    Hero hero;
+    private TreeItem<String> root, armor, weapon, items, gold;
+    private TreeView<String> equTree;
+    private String selectedWeapon = "";
+    private String selectedArmor = "";
+    private Hero hero;
 
 
     public EquipmentPane(Hero hero){
@@ -42,11 +47,13 @@ public class EquipmentPane {
 
         equTree = new TreeView<>(root);
         equTree.setShowRoot(false);
+
+        equTree.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
         equTree.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
             if (newValue!= null) {
-                //String tmp = oldValue.getValue();
-                //newValue.setValue(tmp);
-                //System.out.println(newValue.getValue());
+                selectedWeapon = newValue.getValue();
+                selectedArmor = newValue.getValue();
             }
 
         });
@@ -84,5 +91,17 @@ public class EquipmentPane {
         item.setExpanded(true);
         parent.getChildren().add(item);
         return item;
+    }
+
+    public String getSelectedWeapon() {
+        return selectedWeapon;
+    }
+
+    public String getSelectedArmor() {
+        return selectedArmor;
+    }
+
+    public TreeView<String> getEquTree() {
+        return equTree;
     }
 }

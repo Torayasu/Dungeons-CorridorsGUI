@@ -15,10 +15,31 @@ public class Hero {
         this.stats = stats;
         HP = 50;
         equippedWeapon = new Weapon("Fist", new Dice(4), 0);
-        equippedArmor = new Armor("No armor",2);
+        equippedArmor = new Armor("None",0);
         equipmentSet.addArmor(new Armor("None", 0));
-
+        equipmentSet.addArmor(new Armor("Plate Armor", 10));
         equipmentSet.addWeapon(new Weapon("Dagger", new Dice(6), 0 ));
+        equipmentSet.addWeapon(new Weapon("Sword", new Dice(10), 2));
+
+    }
+
+    public void levelUp(){
+        int tmpStrength, tmpDexterity, tmpConstitution;
+        int tmpHP;
+        Dice HPDice = new Dice(10);
+
+        HP = HP + HPDice.cast() + stats.getConstitution().getModifier();
+
+        tmpStrength = stats.getStrength().getAttribute();
+        stats.getStrength().setAttribute(++tmpStrength);
+
+        tmpDexterity = stats.getDexterity().getAttribute();
+        stats.getDexterity().setAttribute(++tmpDexterity);
+
+        tmpConstitution = stats.getConstitution().getAttribute();
+        stats.getConstitution().setAttribute(++tmpConstitution);
+
+
     }
 
     public AttributeSet getStats() {
@@ -51,6 +72,14 @@ public class Hero {
 
     public void setExp(int exp) {
         this.exp = exp;
+        if (exp / (level*1000) >= 1) {
+            levelUp();
+            level++;
+        }
+    }
+
+    public int getLevel() {
+        return level;
     }
 
     public int getExp() {
@@ -59,5 +88,13 @@ public class Hero {
 
     public int getArmorClass(){
         return equippedArmor.armorClass + getStats().getDexterity().getModifier() + 10;
+    }
+
+    public void setEquippedWeapon(Weapon equippedWeapon) {
+        this.equippedWeapon = equippedWeapon;
+    }
+
+    public void setEquippedArmor(Armor equippedArmor) {
+        this.equippedArmor = equippedArmor;
     }
 }

@@ -1,13 +1,11 @@
 package com.DungeonsCorridorsGUI.graphics;
 
-import com.DungeonsCorridorsGUI.internal.AttributeSet;
-import com.DungeonsCorridorsGUI.internal.Dice;
-import com.DungeonsCorridorsGUI.internal.Hero;
-import com.DungeonsCorridorsGUI.internal.Monster;
+import com.DungeonsCorridorsGUI.internal.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -23,6 +21,7 @@ public class mainGUI extends Application {
     Hero hero = new Hero(new AttributeSet(1,1,1,1,1,1));
     Console console = new Console();
     ButtonInterface buttonArea = new ButtonInterface();
+    EquipmentPane equipmentPane = new EquipmentPane(hero);
     boolean playerIsDead = false;
 
 
@@ -51,7 +50,7 @@ public class mainGUI extends Application {
         newWindow.showAndWait();
 
 
-        EquipmentPane equipmentPane = new EquipmentPane(hero);
+
         HeroPane heroPane = new HeroPane(hero);
         Map mainMap = new Map();
         MenuDungeons mainMenu = new MenuDungeons();
@@ -94,25 +93,43 @@ public class mainGUI extends Application {
         mainArea.setRight(invArea);
         mainArea.setCenter(mapArea);
 
+        equipmentPane.getEquTree().getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
+            verifyWeapon();
+            verifyArmor();
+            heroPane.showStats();
+        });
 
         buttonArea.setInterfaceToTravel();
-        buttonArea.getButton1().setOnAction( e -> { if (!playerIsDead) {mainMap.moveUp();
-                                                    checkEncounter();
-                                                    heroPane.showStats();}
+        buttonArea.getButton1().setOnAction( e -> { int  tmpPosY;
+                                                    tmpPosY = mainMap.getHeroPosY();
+                                                    if (!playerIsDead) {mainMap.moveUp();
+                                                    if (tmpPosY != mainMap.getHeroPosY()) {checkEncounter();}
+                                                    heroPane.showStats();
+                                                    verifyGameOver(window);}
         });
-        buttonArea.getButton2().setOnAction( e -> { if (!playerIsDead) {mainMap.moveDown();
-                                                    checkEncounter();
-                                                    heroPane.showStats();}
+        buttonArea.getButton2().setOnAction( e -> { if (!playerIsDead) {
+                                                    int  tmpPosY;
+                                                    tmpPosY = mainMap.getHeroPosY();
+                                                    mainMap.moveDown();
+                                                    if (tmpPosY != mainMap.getHeroPosY()) {checkEncounter();}
+                                                    heroPane.showStats();
+                                                    verifyGameOver(window);}
         });
         buttonArea.getButton3().setOnAction( e -> { if (!playerIsDead) {
+                                                    int  tmpPosX;
+                                                    tmpPosX = mainMap.getHeroPosX();
                                                     mainMap.moveRight();
-                                                    checkEncounter();
-                                                    heroPane.showStats();}
+                                                    if (tmpPosX != mainMap.getHeroPosX()) {checkEncounter();}
+                                                    heroPane.showStats();
+                                                    verifyGameOver(window);}
         });
         buttonArea.getButton4().setOnAction( e -> { if (!playerIsDead) {
+                                                    int  tmpPosX;
+                                                    tmpPosX = mainMap.getHeroPosX();
                                                     mainMap.moveLeft();
-                                                    checkEncounter();
-                                                    heroPane.showStats();}
+                                                    if (tmpPosX != mainMap.getHeroPosX()) {checkEncounter();};
+                                                    heroPane.showStats();
+                                                    verifyGameOver(window);}
         });
 
 
@@ -128,8 +145,6 @@ public class mainGUI extends Application {
         int dmgDoneByPlayer = 0;
         int dmgDoneByMonster = 0;
         int tmpHPofPlayer = 0;
-        boolean didPlayerHit = false;
-        boolean didMonsterHit = false;
         if (encounterChance.nextInt(100)+1 >= 50) {
             Monster monster = new Monster(10,new Dice(4), 0, "RAT", 10, 1);
             console.addMessage(" You encounter a hostile " + monster.getName() + " !");
@@ -138,6 +153,9 @@ public class mainGUI extends Application {
                //Hero Attacks
                if (hero.getStats().getStrength().getModifier() + d20.cast() > monster.getArmorClass()) {
                    dmgDoneByPlayer = hero.getEquippedWeapon().getDamageDice().cast() + hero.getEquippedWeapon().getDmgModifier() + hero.getStats().getStrength().getModifier();
+                   if (dmgDoneByPlayer < 1) {
+                       dmgDoneByPlayer = 0;
+                   }
                    monster.setHP(monster.getHP() - dmgDoneByPlayer);
                    console.addMessage(" You have done " + dmgDoneByPlayer + " damage to " + monster.getName());
                }
@@ -167,12 +185,60 @@ public class mainGUI extends Application {
                playerIsDead = true;
            }
            if (monsterIsDead) {
-               int tmpExp = hero.getExp()+100;
+               Dice ExpDice = new Dice(100);
+               int tmpExp = hero.getExp()+ExpDice.cast()+50;
                hero.setExp(tmpExp);
            }
         }
 
     }
 
+
+    public void verifyWeapon(){
+        for (Weapon w : hero.getEquipmentSet().getWeapons())
+        {
+            if (equipmentPane.getSelectedWeapon().equals(w.getName())) {
+                hero.setEquippedWeapon(w);
+            }
+            else {
+            }
+        }
+    }
+
+    public void verifyArmor(){
+        for (Armor a : hero.getEquipmentSet().getArmors()){
+            if (equipmentPane.getSelectedArmor().equals(a.getName())) {
+                hero.setEquippedArmor(a);
+            }
+        }
+    }
+
+    public void verifyGameOver(Stage window){
+        if (playerIsDead || hero.getLevel() == 5){
+
+            VBox gameOverArea = new VBox();
+            gameOverArea.setMinHeight(200);
+            gameOverArea.setMaxHeight(200);
+            gameOverArea.setMinWidth(200);
+            gameOverArea.setMaxWidth(200);
+            gameOverArea.setAlignment(Pos.CENTER);
+
+            Label gameOverLabel = new Label("Game Over");
+
+            gameOverArea.getChildren().add(gameOverLabel);
+
+            Scene gameOverScene = new Scene(gameOverArea);
+
+            Stage gameOverWindow = new Stage();
+            gameOverWindow.setScene(gameOverScene);
+
+            gameOverWindow.initModality(Modality.APPLICATION_MODAL);
+
+            gameOverWindow.showAndWait();
+
+            window.close();
+        }
+
+    }
 
 }

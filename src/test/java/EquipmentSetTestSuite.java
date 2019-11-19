@@ -16,7 +16,7 @@ public class EquipmentSetTestSuite {
         stuff.addWeapon(new Weapon("Dagger", new Dice(6), 2));
         stuff.addWeapon(new Weapon("Dagger", new Dice(6), 2));
 
-        Assert.assertEquals(2,stuff.getWeapons().size());
+        Assert.assertEquals(1,stuff.getWeapons().size());
 
     }
 
@@ -24,14 +24,14 @@ public class EquipmentSetTestSuite {
     public void testAddArmor(){
         EquipmentSet stuff = new EquipmentSet();
 
-        stuff.addArmor(new Armor("Plate com.DungeonsCorridorsGUI.internal.Armor", 10));
-        stuff.addArmor(new Armor("Plate com.DungeonsCorridorsGUI.internal.Armor", 10));
-        stuff.addArmor(new Armor("Plate com.DungeonsCorridorsGUI.internal.Armor", 12));
-        stuff.addArmor(new Armor("Plate com.DungeonsCorridorsGUI.internal.Armor", 12));
-        stuff.addArmor(new Armor("plate com.DungeonsCorridorsGUI.internal.Armor", 12));
+        stuff.addArmor(new Armor("Plate Armor", 10));
+        stuff.addArmor(new Armor("Plate Armor", 10));
+        stuff.addArmor(new Armor("Plate Armor", 12));
+        stuff.addArmor(new Armor("Plate Armor", 12));
+        stuff.addArmor(new Armor("Plate Armor", 12));
 
 
-        Assert.assertEquals(3,stuff.getArmors().size());
+        Assert.assertEquals(1,stuff.getArmors().size());
     }
 
     @Test
