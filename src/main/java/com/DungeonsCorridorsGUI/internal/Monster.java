@@ -29,24 +29,12 @@ public class Monster {
         return dmgDice;
     }
 
-    public void setDmgDice(Dice dmgDice) {
-        this.dmgDice = dmgDice;
-    }
-
     public int getDmgModifier() {
         return dmgModifier;
     }
 
-    public void setDmgModifier(int dmgModifier) {
-        this.dmgModifier = dmgModifier;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getArmorClass() {

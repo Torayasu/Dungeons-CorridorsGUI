@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class HeroPane {
     private VBox heroPane = new VBox();
-    ArrayList<Label> labels = new ArrayList<Label>();
-    Hero hero;
+    private ArrayList<Label> labels = new ArrayList<Label>();
+    private Hero hero;
 
     public HeroPane(Hero hero){
         this.hero = hero;

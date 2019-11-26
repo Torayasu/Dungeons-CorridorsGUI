@@ -1,7 +1,8 @@
 package com.DungeonsCorridorsGUI.internal;
 
 public class AttributeSet {
-    ValueSet[] attributeSet = new ValueSet[6];
+
+    private ValueSet[] attributeSet = new ValueSet[6];
 
     public AttributeSet(int Strength, int Dexterity, int Constitution, int Wisdom, int Intelligence, int Charisma) {
         attributeSet[0] = new ValueSet(Strength);

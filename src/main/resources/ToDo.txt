@@ -1,6 +1,8 @@
 - Add enemies generation
-- Add selecting the equipment from inventory -> Added (based on unique names, so not so good, switch to Table View ?)
+- Add selecting the equipment from inventory -> Added (based on unique names, so not so good, switch to Table View ? or Try TreeView<Weapon>)
 - Add saving and loading game
 - Add starting a new game
+- Add difficulties
+- Add ScoreBoard
 - Add waiting time while displaying message - wait until you add sounds
 - Add Gold and shopping

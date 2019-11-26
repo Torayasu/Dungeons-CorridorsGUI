@@ -1,16 +1,15 @@
 package com.DungeonsCorridorsGUI.internal;
 
 public class Hero {
-    AttributeSet stats;
-    Weapon equippedWeapon;
-    Armor equippedArmor;
-    EquipmentSet equipmentSet = new EquipmentSet();
+    private AttributeSet stats;
+    private Weapon equippedWeapon;
+    private Armor equippedArmor;
+    private EquipmentSet equipmentSet = new EquipmentSet();
     private int exp = 0;
     private int level = 1;
     private int HP;
     private int armorClass;
 
-    //Temporary Constructor
     public Hero(AttributeSet stats) {
         this.stats = stats;
         HP = 50;

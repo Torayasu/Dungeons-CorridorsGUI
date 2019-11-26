@@ -1,19 +1,13 @@
 package com.DungeonsCorridorsGUI.graphics;
 
 import com.DungeonsCorridorsGUI.internal.Armor;
-import com.DungeonsCorridorsGUI.internal.AttributeSet;
 import com.DungeonsCorridorsGUI.internal.Hero;
 import com.DungeonsCorridorsGUI.internal.Weapon;
-import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.SelectionMode;
-import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-
-import javax.swing.text.StyledEditorKit;
 
 public class EquipmentPane {
 

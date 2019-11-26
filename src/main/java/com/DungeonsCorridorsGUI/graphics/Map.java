@@ -1,6 +1,5 @@
 package com.DungeonsCorridorsGUI.graphics;
 
-import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 
 import java.io.FileNotFoundException;

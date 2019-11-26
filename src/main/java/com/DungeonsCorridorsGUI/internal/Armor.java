@@ -3,7 +3,7 @@ package com.DungeonsCorridorsGUI.internal;
 import java.util.Objects;
 
 public class Armor {
-    String name;
+    private String name;
     int armorClass;
 
     public Armor(String name, int armorClass) {

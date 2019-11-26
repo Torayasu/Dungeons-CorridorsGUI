@@ -17,12 +17,12 @@ import java.util.Random;
 
 public class mainGUI extends Application {
 
-    Stage window;
-    Hero hero = new Hero(new AttributeSet(1,1,1,1,1,1));
-    Console console = new Console();
-    ButtonInterface buttonArea = new ButtonInterface();
-    EquipmentPane equipmentPane = new EquipmentPane(hero);
-    boolean playerIsDead = false;
+    private Stage window;
+    private Hero hero = new Hero(new AttributeSet(1,1,1,1,1,1));
+    private Console console = new Console();
+    private ButtonInterface buttonArea = new ButtonInterface();
+    private EquipmentPane equipmentPane = new EquipmentPane(hero);
+    private boolean playerIsDead = false;
 
 
     public mainGUI() {
@@ -241,4 +241,28 @@ public class mainGUI extends Application {
 
     }
 
+
+    public Stage getWindow() {
+        return window;
+    }
+
+    public Hero getHero() {
+        return hero;
+    }
+
+    public Console getConsole() {
+        return console;
+    }
+
+    public ButtonInterface getButtonArea() {
+        return buttonArea;
+    }
+
+    public EquipmentPane getEquipmentPane() {
+        return equipmentPane;
+    }
+
+    public boolean isPlayerIsDead() {
+        return playerIsDead;
+    }
 }

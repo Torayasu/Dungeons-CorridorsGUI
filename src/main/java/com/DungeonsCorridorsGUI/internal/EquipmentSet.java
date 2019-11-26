@@ -1,7 +1,5 @@
 package com.DungeonsCorridorsGUI.internal;
 
-import com.DungeonsCorridorsGUI.internal.Armor;
-
 import java.util.HashSet;
 import java.util.Set;
 

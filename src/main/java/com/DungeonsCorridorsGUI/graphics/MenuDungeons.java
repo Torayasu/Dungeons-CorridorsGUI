@@ -10,11 +10,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MenuDungeons {
-    MenuBar menuBar;
-    Menu fileMenu;
-    Menu helpMenu;
-    MenuItem NewGame, SaveGame, LoadGame;
-    MenuItem About;
+    private MenuBar menuBar;
+    private Menu fileMenu;
+    private Menu helpMenu;
+    private MenuItem NewGame, SaveGame, LoadGame;
+    private MenuItem About;
 
     public MenuDungeons() {
         NewGame = new MenuItem("Start a New Game");
