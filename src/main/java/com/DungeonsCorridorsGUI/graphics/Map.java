@@ -78,10 +78,6 @@ public class Map {
 
     public GridPane initMap() {return map;}
 
-    public MapTile[][] getTiles() {
-        return tiles;
-    }
-
     public void moveUp(){
         if (heroPosY > 0) {
             tiles[heroPosX][heroPosY].hideHero();

@@ -1,6 +1,5 @@
 package com.DungeonsCorridorsGUI.graphics;
 
-import com.DungeonsCorridorsGUI.internal.AttributeSet;
 import com.DungeonsCorridorsGUI.internal.Hero;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -19,10 +18,6 @@ public class HeroPane {
 
     public VBox initHeroPane(){
         return heroPane;
-    }
-
-    public void setStats(AttributeSet newStats) {
-        hero.setStats(newStats);
     }
 
     public void showStats() {

@@ -35,9 +35,6 @@ public class mainGUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        // Here we will show the Title Screen
-
-        // Here I will handle the character creation
         CharacterCreationWindow characterCreationWindow = new CharacterCreationWindow(hero);
         Stage newWindow = new Stage();
         Scene newScene = characterCreationWindow.getScene();
@@ -48,8 +45,6 @@ public class mainGUI extends Application {
         newWindow.initModality(Modality.APPLICATION_MODAL);
         newWindow.setOnCloseRequest(e -> characterCreationWindow.initTheHero());
         newWindow.showAndWait();
-
-
 
         HeroPane heroPane = new HeroPane(hero);
         Map mainMap = new Map();
@@ -150,7 +145,6 @@ public class mainGUI extends Application {
             console.addMessage(" You encounter a hostile " + monster.getName() + " !");
             while (hero.getHP() > 0 && !monsterIsDead){
 
-               //Hero Attacks
                if (hero.getStats().getStrength().getModifier() + d20.cast() > monster.getArmorClass()) {
                    dmgDoneByPlayer = hero.getEquippedWeapon().getDamageDice().cast() + hero.getEquippedWeapon().getDmgModifier() + hero.getStats().getStrength().getModifier();
                    if (dmgDoneByPlayer < 1) {
@@ -167,7 +161,7 @@ public class mainGUI extends Application {
                    console.addMessage(monster.getName() + " is Dead !");
 
                }
-               //Monster Attacks
+
                if (!monsterIsDead) {
                    if (d20.cast() + monster.getMelee() > hero.getArmorClass() ) {
                        dmgDoneByMonster = monster.getDmgDice().cast() + monster.getDmgModifier();
@@ -239,30 +233,5 @@ public class mainGUI extends Application {
             window.close();
         }
 
-    }
-
-
-    public Stage getWindow() {
-        return window;
-    }
-
-    public Hero getHero() {
-        return hero;
-    }
-
-    public Console getConsole() {
-        return console;
-    }
-
-    public ButtonInterface getButtonArea() {
-        return buttonArea;
-    }
-
-    public EquipmentPane getEquipmentPane() {
-        return equipmentPane;
-    }
-
-    public boolean isPlayerIsDead() {
-        return playerIsDead;
     }
 }

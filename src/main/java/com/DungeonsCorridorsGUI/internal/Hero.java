@@ -24,7 +24,6 @@ public class Hero {
 
     public void levelUp(){
         int tmpStrength, tmpDexterity, tmpConstitution;
-        int tmpHP;
         Dice HPDice = new Dice(10);
 
         HP = HP + HPDice.cast() + stats.getConstitution().getModifier();

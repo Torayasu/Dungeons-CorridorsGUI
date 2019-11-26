@@ -12,7 +12,6 @@ public class AttributeSettingButtons extends Node {
     private Button minusButton = new Button("-");
     private Label label = new Label();
     private TextArea attributeValueField = new TextArea("10");
-    private int value = 10;
 
     private GridPane layout = new GridPane();
 

@@ -1,13 +1,10 @@
 package com.DungeonsCorridorsGUI.internal;
 
 import java.util.HashSet;
-import java.util.Set;
 
 public class EquipmentSet {
     private HashSet<Weapon> weapons = new HashSet<>();
     private HashSet<Armor> armors = new HashSet<>();
-    private Set<Item> items;
-    private int amountOfGold;
 
     public void addWeapon(Weapon weapon){
         weapons.add(weapon);
@@ -25,11 +22,4 @@ public class EquipmentSet {
         return armors;
     }
 
-    public Set<Item> getItems() {
-        return items;
-    }
-
-    public int getAmountOfGold() {
-        return amountOfGold;
-    }
 }
